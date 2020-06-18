@@ -27,7 +27,7 @@
             android:background="@drawable/picture_corners"
             android:contentDescription="@string/stats_widget_site_selection_content_description"
             android:scaleType="centerCrop"
-            tools:src="@drawable/ic_product" />
+            tools:src="@drawable/ic_gridicons_globe" />
     </FrameLayout>
 
     <com.google.android.material.textview.MaterialTextView

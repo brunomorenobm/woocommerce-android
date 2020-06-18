@@ -47,7 +47,7 @@
     </style>
 
     <style name="Woo.StatsWidgetTitle.Dark">
-        <item name="android:textColor">@color/woo_white_alpha_087</item>
+        <item name="android:textColor">@color/color_on_surface_high</item>
     </style>
 
     <style name="Woo.StatsWidgetSubtitle" parent="TextAppearance.AppCompat.Body2">
@@ -63,7 +63,7 @@
     </style>
 
     <style name="Woo.StatsWidgetSubtitle.Dark">
-        <item name="android:textColor">@color/woo_white_alpha_060</item>
+        <item name="android:textColor">@color/color_on_surface_medium</item>
     </style>
 
     <style name="Woo.StatsWidgetError">
@@ -88,7 +88,7 @@
     </style>
 
     <style name="Woo.StatsWidgetErrorMessage.Dark">
-        <item name="android:textColor">@color/woo_white_alpha_060</item>
+        <item name="android:textColor">@color/color_on_surface_medium</item>
     </style>
 
     <style name="Woo.StatsWidgetRetryButton" parent="TextAppearance.AppCompat.Body1">
@@ -120,7 +120,7 @@
     </style>
 
     <style name="Woo.StatsWidgetListItemKey.Dark">
-        <item name="android:textColor">@color/woo_white_alpha_060</item>
+        <item name="android:textColor">@color/color_on_surface</item>
     </style>
 
     <style name="Woo.StatsWidgetListItemValue" parent="TextAppearance.AppCompat.Body1">
@@ -136,6 +136,6 @@
     </style>
 
     <style name="Woo.StatsWidgetListItemValue.Dark">
-        <item name="android:textColor">@color/woo_white_alpha_087</item>
+        <item name="android:textColor">@color/color_on_surface</item>
     </style>
 </resources>

@@ -17,6 +17,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:itemCount="3"
-        tools:listitem="@layout/dialog_widget_site_selector_item" />
+        tools:listitem="@layout/widget_site_selector_list_item" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
