@@ -28,6 +28,7 @@ import com.woocommerce.android.model.sortCategories
 import com.woocommerce.android.model.toAppModel
 import com.woocommerce.android.tools.NetworkStatus
 import com.woocommerce.android.tools.SelectedSite
+import com.woocommerce.android.ui.products.ProductDetailBottomSheetBuilder.ProductDetailBottomSheetUiItem
 import com.woocommerce.android.ui.products.ProductDetailViewModel.ProductExitEvent.ExitExternalLink
 import com.woocommerce.android.ui.products.ProductDetailViewModel.ProductExitEvent.ExitImages
 import com.woocommerce.android.ui.products.ProductDetailViewModel.ProductExitEvent.ExitInventory
@@ -139,6 +140,13 @@ class ProductDetailViewModel @AssistedInject constructor(
 
     private val cardBuilder by lazy {
         ProductDetailCardBuilder(this, resources, currencyFormatter, parameters)
+    }
+
+    private val _productDetailBottomSheetList = MutableLiveData<List<ProductDetailBottomSheetUiItem>>()
+    val productDetailBottomSheetList: LiveData<List<ProductDetailBottomSheetUiItem>> = _productDetailBottomSheetList
+
+    private val productDetailBottomSheetBuilder by lazy {
+        ProductDetailBottomSheetBuilder(this, resources)
     }
 
     init {
@@ -630,6 +638,17 @@ class ProductDetailViewModel @AssistedInject constructor(
         productRepository.onCleanup()
         productCategoriesRepository.onCleanup()
         EventBus.getDefault().unregister(this)
+    }
+
+    fun fetchBottomSheetList() {
+        viewState.productDraft?.let {
+            launch(dispatchers.computation) {
+                val detailList = productDetailBottomSheetBuilder.buildBottomSheetList(it)
+                withContext(dispatchers.main) {
+                    _productDetailBottomSheetList.value = detailList
+                }
+            }
+        }
     }
 
     private fun updateCards() {

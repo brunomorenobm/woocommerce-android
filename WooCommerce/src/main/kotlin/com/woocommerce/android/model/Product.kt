@@ -96,6 +96,15 @@ data class Product(
         val isVisible: Boolean
     ) : Parcelable
 
+    fun hasCategories() = categories.isNotEmpty()
+    fun hasTags() = tags.isNotEmpty()
+    fun hasShortDescription() = shortDescription.isNotEmpty()
+    fun hasShipping(): Boolean {
+        return weight > 0 ||
+            length > 0 || width > 0 || height > 0 ||
+            shippingClass.isNotEmpty()
+    }
+
     fun isSameProduct(product: Product): Boolean {
         return remoteId == product.remoteId &&
                 stockQuantity == product.stockQuantity &&

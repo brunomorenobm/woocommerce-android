@@ -28,6 +28,7 @@ import com.woocommerce.android.ui.aztec.AztecEditorFragment.Companion.ARG_AZTEC_
 import com.woocommerce.android.ui.main.MainActivity.NavigationResult
 import com.woocommerce.android.ui.products.ProductDetailViewModel.LaunchUrlInChromeTab
 import com.woocommerce.android.ui.products.ProductDetailViewModel.ProductExitEvent.ExitProductDetail
+import com.woocommerce.android.ui.products.ProductNavigationTarget.ViewProductDetailBottomSheet
 import com.woocommerce.android.ui.products.adapters.ProductPropertyCardsAdapter
 import com.woocommerce.android.ui.products.models.ProductPropertyCard
 import com.woocommerce.android.ui.wpmediapicker.WPMediaPickerFragment
@@ -140,6 +141,14 @@ class ProductDetailFragment : BaseProductFragment(), OnGalleryImageClickListener
             // display View Product on Store menu button only if the Product status is published,
             // otherwise the page is redirected to a 404
             viewProductOnStoreMenuItem?.isVisible = status == ProductStatus.PUBLISH
+        }
+
+        productDetail_addMoreContainer.visibility = View.VISIBLE
+        productDetail_addMoreContainer.setOnClickListener {
+            // TODO: add tracking events here
+            viewModel.onEditProductCardClicked(
+                ViewProductDetailBottomSheet(product.remoteId)
+            )
         }
     }
 
